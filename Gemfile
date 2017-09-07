@@ -5,7 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-
+gem 'non-stupid-digest-assets', '~> 1.0', '>= 1.0.9'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
@@ -18,6 +18,21 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+
+gem 'binding_of_caller'
+
+# better errors
+gem 'better_errors'
+gem 'pry-byebug'
+
+# gem 'simple-form'
+gem 'acts-as-taggable-on','~> 4.0'
+
+# text editor and file uploader
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'mini_magick'
+
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

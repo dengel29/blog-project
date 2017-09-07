@@ -1,3 +1,4 @@
+
 <%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div id="error_explanation">
@@ -12,18 +13,18 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :post_name %>
-  </div>
-
-  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title, id: :post_title %>
   </div>
 
   <div class="field">
+    <%= form.label :tag_list, "Tags (separated by commas)" %>
+    <%= form.text_field :tag_list, id: :post_tag_list %>
+  </div>
+
+  <div class="field">
     <%= form.label :content %>
-    <%= form.text_area :content, id: :post_content %>
+    <%= form.cktext_area :content, id: :post_content %>
   </div>
 
   <div class="actions">
