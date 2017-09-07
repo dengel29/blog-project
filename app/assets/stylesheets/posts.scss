@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 #tag_cloud {
   width: 400px;
   text-align: center;
@@ -14,3 +16,37 @@
 #header {
   color: #563D7C;
 }
+
+.post-title {
+  font-size: 1.8em;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+}
+
+.body {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: flex-start;
+  aside {
+    flex: 0 0 8rem;
+    order: 0;
+  }
+
+  main{
+    flex: 1 0 auto;
+    order: 1;
+  }
+
+  nav {
+    flex: 0 0 8rem;
+    order: 2;
+  }
+
+}
+
+
+
