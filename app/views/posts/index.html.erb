@@ -1,29 +1,116 @@
 <div class="page">
-  <header></header>
+  <head>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.jplayer.min.js"></script>
+    <link type="text/css" href="/skin/pink.flag/jplayer.pink.flag.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function(){
+          $("#jquery_jplayer_1").jPlayer({
+            ready: function () {
+              $(this).jPlayer("setMedia", {
+                title: "Bubble",
+                m4a: "http://www.jplayer.org/audio/m4a/Miaow-07-Bubble.m4a",
+                oga: "http://www.jplayer.org/audio/ogg/Miaow-07-Bubble.ogg"
+              });
+            },
+            cssSelectorAncestor: "#jp_container_1",
+            swfPath: "/js",
+            supplied: "m4a, oga",
+            useStateClassSkin: true,
+            autoBlur: false,
+            smoothPlayBar: true,
+            keyEnabled: true,
+            remainingDuration: true,
+            toggleDuration: true
+          });
+        });
+      </script>
+  </head>
+
     <p id="notice"><%= notice %></p>
     <div class="body">
       <main>
         <h1>Posts</h1>
-
               <% @posts.each do |post| %>
                 <!-- styling for a normal (photo or text post) -->
-                  <div class="row">
-                    <div class="post-title">
-                      <%= raw post.title %>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <%= raw post.content %>
-                  </div>
+                 <%= if post.type = audio %>
+                    <div class="post-card">
+                      <div class="row">
+                        <div class="post-card post-title">
+                          <%= raw post.title %>
+                        </div>
+                      </div>
+                      <div class="row audio">
+                        <div id="jquery_jplayer_1" class="jp-jplayer"></div>
+                        <div id="jp_container_1" class="jp-audio" role="application" aria-label="media player">
+                          <div class="jp-type-single">
+                            <div class="jp-gui jp-interface">
+                              <div class="jp-volume-controls">
+                                <button class="jp-mute" role="button" tabindex="0">mute</button>
+                                <button class="jp-volume-max" role="button" tabindex="0">max volume</button>
+                                <div class="jp-volume-bar">
+                                  <div class="jp-volume-bar-value"></div>
+                                </div>
+                              </div>
+                              <div class="jp-controls-holder">
+                                <div class="jp-controls">
+                                  <button class="jp-play" role="button" tabindex="0">play</button>
+                                  <button class="jp-stop" role="button" tabindex="0">stop</button>
+                                </div>
+                                <div class="jp-progress">
+                                  <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                  </div>
+                                </div>
+                                <div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+                                <div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+                                <div class="jp-toggles">
+                                  <button class="jp-repeat" role="button" tabindex="0">repeat</button>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="jp-details">
+                              <div class="jp-title" aria-label="title">&nbsp;</div>
+                            </div>
+                            <div class="jp-no-solution">
+                              <span>Update Required</span>
+                              To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                            </div>
+                          </div>
+                        </div>
+                      </div>
 
-                  <div class="row">
-                      <%= raw post.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %>
-                      <%= link_to 'Show', post %>
-                      <%= link_to 'Edit', edit_post_path(post) %>
-                      <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-                  </div>
+                      <div class="row">
+                        <div class="post-card tag-list">
+                          <%= raw post.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %>
+                        </div>
+                          <%= link_to 'Show', post %>
+                          <%= link_to 'Edit', edit_post_path(post) %>
+                          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </div>
+                  <%= else %>
+                    <div class="post-card">
+                      <div class="row">
+                        <div class="post-card post-title">
+                          <%= raw post.title %>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <!-- replace this with post.blurb -->
+                        <%= raw post.content %>
+                      </div>
 
+                      <div class="row">
+                        <div class="post-card tag-list">
+                          <%= raw post.tag_list.map { |t| link_to t, tag_path(t)}.join(', ') %>
+                        </div>
+                          <%= link_to 'Show', post %>
+                          <%= link_to 'Edit', edit_post_path(post) %>
+                          <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                      </div>
+                  </div>
                 <hr><hr>
+                  <% end %>
               <% end %>
         <br>
         <%= link_to 'New Post', new_post_path %>
