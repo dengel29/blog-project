@@ -1,8 +1,9 @@
 class Post < ApplicationRecord
-  mount_uploader :avatar, AvatarUploader
+  # attr_accessor :audio, :media_type, :content, :title
+  mount_uploader :audio, AudioUploader
   acts_as_taggable
 
-  TYPE_MAP = [
+  MEDIA_TYPE_MAP = [
     {
       id: "text",
       name: "text"
@@ -20,6 +21,7 @@ class Post < ApplicationRecord
       name: "video"
     }
   ]
-  TYPE_IDS = TYPE_MAP.map { |type_item| type_item[:name] }
-  validates :type, inclusion: { in: TYPE_IDS }
+  MEDIA_TYPE_IDS = MEDIA_TYPE_MAP.map { |media_type_item| media_type_item[:name] }
+  validates :media_type, inclusion: { in: MEDIA_TYPE_IDS }
+  validates :title, presence: true
 end

@@ -25,11 +25,12 @@ gem 'figaro'
 gem 'better_errors'
 gem 'pry-byebug'
 
-# gem 'simple-form'
+gem 'simple_form'
 gem 'acts-as-taggable-on','~> 4.0'
 
 # text editor and file uploader
 gem 'ckeditor'
+gem 'cloudinary'
 gem 'carrierwave'
 gem 'mini_magick'
 

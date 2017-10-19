@@ -1,40 +1,51 @@
-
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
-
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :post_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :tag_list, "Tags (separated by commas)" %>
-    <%= form.text_field :tag_list, id: :post_tag_list %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.cktext_area :content, id: :post_content %>
-  </div>
-
-  <div>
-    <%= f.label :image %>
-    <%= f.file_field :image %>
-  </div>
-
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+<%= simple_form_for(@post) do |f| %>
+  <%= f.input :title %>
+  <%= f.input :tag_list %>
+  <%= f.input :media_type  %>
+  <%= f.input :content  %>
+  <%  f.file_field :audio %>
+  <%= f.button :submit %>
 <% end %>
+
+<%# <%= form_with(model: post, local: true) do |form| %> %>
+  <%# <% if post.errors.any? %> %>
+    <%# <div id="error_explanation"> %>
+      <%# <h2><%= pluralize(post.errors.count, "error") prohibited this post from being saved:</h2> %> %>
+
+      <%# <ul> %>
+      <%# <% post.errors.full_messages.each do |message| %> %>
+        <%# <li><%= message %></li> %>
+      <%# <% end %> %>
+      <%# </ul> %>
+    <%# </div> %>
+  <%# <% end %> %>
+
+  <%# <div class="field"> %>
+    <%# <%= form.label :title %> %>
+    <%# <%= form.text_field :title, id: :post_title %> %>
+  <%# </div> %>
+
+  <%# <div class="field"> %>
+    <%# <%= form.label :tag_list, "Tags (separated by commas)" %> %>
+    <%# <%= form.text_field :tag_list, id: :post_tag_list %> %>
+  <%# </div> %>
+
+  <%# <div class="field"> %>
+  <%# <%= form.label :type, "Type (audio, text, photo, or video)" %> %>
+  <%# <%= form.text_field :type, id: :post_type %> %>
+<%# </div> %>
+
+  <%# <div class="field"> %>
+    <%# <%= form.label :content %> %>
+    <%# <%= form.cktext_area :content, id: :post_content %> %>
+  <%# </div> %>
+
+  <%# <div> %>
+    <%# <%= form.label :audio %> %>
+    <%# <%= form.file_field :audio %> %>
+  <%# </div> %>
+
+  <%# <div class="actions"> %>
+    <%# <%= form.submit %> %>
+  <%# </div> %>
+<%# <% end %> %>
