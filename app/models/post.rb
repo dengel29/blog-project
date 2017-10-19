@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-  # attr_accessor :audio, :media_type, :content, :title
+  attr_accessor :audio
   mount_uploader :audio, AudioUploader
   acts_as_taggable
 

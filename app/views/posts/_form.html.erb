@@ -3,7 +3,7 @@
   <%= f.input :tag_list %>
   <%= f.input :media_type  %>
   <%= f.input :content  %>
-  <%  f.file_field :audio %>
+  <%  f.file_field :audio, as: :file, label: false, required: true %>
   <%= f.button :submit %>
 <% end %>
 
