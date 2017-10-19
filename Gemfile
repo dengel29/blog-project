@@ -20,7 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'binding_of_caller'
-
+gem 'simple_form'
 # better errors
 gem 'better_errors'
 gem 'pry-byebug'
