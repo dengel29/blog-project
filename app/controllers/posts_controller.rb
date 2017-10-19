@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  # before_action :set_post, only: [:show, :edit, :update, :destroy]
+  require 'carrierwave'
+  require 'carrierwave/orm/activerecord'
   # GET /posts
   # GET /posts.json
   def index
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @post = Post.find(params[:id])
   end
 
   # GET /posts/new
@@ -73,6 +75,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:title, :content, :tag_list)
+      params.require(:post).permit(:title, :content, :tag_list, :audio, :media_type )
     end
 end

@@ -20,16 +20,20 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 
 gem 'binding_of_caller'
+
 gem 'simple_form'
+
+gem 'figaro'
 # better errors
 gem 'better_errors'
 gem 'pry-byebug'
 
-# gem 'simple-form'
+gem 'simple_form'
 gem 'acts-as-taggable-on','~> 4.0'
 
 # text editor and file uploader
 gem 'ckeditor'
+gem 'cloudinary'
 gem 'carrierwave'
 gem 'mini_magick'
 

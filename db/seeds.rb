@@ -3,5 +3,19 @@
 #
 # Examples:
 #
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
+Post.create([
+    {
+        id: 4,
+        title: 'Star Wars',
+        content: 'this is the content',
+        media_type: 'audio'
+    },
+    {
+        id: 5,
+        title: 'Lord of the Rings',
+        content: 'okay elf movie',
+        media_type: 'text'
+    }
+])
+
 #   Character.create(name: 'Luke', movie: movies.first)
